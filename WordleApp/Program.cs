@@ -21,7 +21,18 @@
 
             do
             {
-                Console.WriteLine($"Your word is: ");
+                int pickedAnswer = random.Next(0,10);
+                while (!victory)
+                {
+                    Console.Write($"Your guess: ");
+                    string entry = Console.ReadLine().ToUpper();
+                    if ( entry == answers[pickedAnswer])
+                    {
+                        Console.WriteLine("You did it!");
+                        victory = true;
+                    }
+                    turns++;
+                }
                 Console.WriteLine($"You took {turns} turns");
                 Console.Write("Would you like to play again? (y/n); ");
                 choice = Console.ReadLine().ToLower();
