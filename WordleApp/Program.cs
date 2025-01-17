@@ -13,11 +13,12 @@
                 "\nBlue is not used at all");
             int turns = 0;//initializing at zero turns
             bool victory = false; //if they have won
-            bool validInput = false;//if input is valid or not
+            //bool validInput = false;//if input is valid or not
             Random random = new Random();//because the word is chosen randomly
             //int chosenAnswer = random.Next(0,10);
             string choice;//initialize choice, use this for the do/while
             string[] answers = {"FLOAT","BLAME","SHARP","IDIOT","MORON","GLOAT","CLOAK","BROKE","FIXED","PUSHY"};//possible answers for the game to choose
+            string testString = "FLACK";
             //Console.WriteLine(answers[chosenAnswer]); was to test that the random worked
 
             do
@@ -27,16 +28,22 @@
                 {
                     Console.Write($"Your guess: ");
                     string entry = Console.ReadLine().ToUpper();
+                    int strLength = entry.Length;
                     if(entry.Length < 5 || entry.Length > 5)
                     {
                         Console.WriteLine("All answers are precisely 5 letters long, this will not increment turns or provide a hint. Guess again.");
                     }
-                    for(int i = 0; i < entry.Length; i++)
+                    for(int counter = 0; counter < testString.Length; counter++)
                     {
-                        if (entry.Equals(answers[pickedAnswer]))
-                        {
-                            victory = true;
-                        }
+                        Console.WriteLine(testString[counter].ToString());//testing char iteration
+                        //if (entry == answers[pickedAnswer][counter])
+                        //{
+
+                        //}
+                        //if (entry.Equals(answers[pickedAnswer]))
+                        //{
+                        //    victory = true;
+                        //}
                     }
                     //if ( entry == answers[pickedAnswer])
                     //{
