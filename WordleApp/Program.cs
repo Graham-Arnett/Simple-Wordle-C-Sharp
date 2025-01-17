@@ -13,8 +13,9 @@
                 "\nBlue is not used at all");
             int turns = 0;//initializing at zero turns
             bool victory = false; //if they have won
+            bool validInput = false;//if input is valid or not
             Random random = new Random();//because the word is chosen randomly
-            int chosenAnswer = random.Next(0,10);
+            //int chosenAnswer = random.Next(0,10);
             string choice;//initialize choice, use this for the do/while
             string[] answers = {"FLOAT","BLAME","SHARP","IDIOT","MORON","GLOAT","CLOAK","BROKE","FIXED","PUSHY"};//possible answers for the game to choose
             //Console.WriteLine(answers[chosenAnswer]); was to test that the random worked
@@ -26,12 +27,23 @@
                 {
                     Console.Write($"Your guess: ");
                     string entry = Console.ReadLine().ToUpper();
-                    if ( entry == answers[pickedAnswer])
+                    if(entry.Length < 5 || entry.Length > 5)
                     {
-                        Console.WriteLine("You did it!");
-                        victory = true;
+                        Console.WriteLine("All answers are precisely 5 letters long, this will not increment turns or provide a hint. Guess again.");
                     }
-                    turns++;
+                    for(int i = 0; i < entry.Length; i++)
+                    {
+                        if (entry.Equals(answers[pickedAnswer]))
+                        {
+                            victory = true;
+                        }
+                    }
+                    //if ( entry == answers[pickedAnswer])
+                    //{
+                    //    Console.WriteLine("You did it!");
+                    //    victory = true;
+                    //}
+                    //turns++;
                 }
                 Console.WriteLine($"You took {turns} turns");
                 Console.Write("Would you like to play again? (y/n); ");
