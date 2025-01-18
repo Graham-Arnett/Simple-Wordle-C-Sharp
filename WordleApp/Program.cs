@@ -36,7 +36,13 @@
                     }
                     for(int counter = 0; counter < answer.Length; counter++)
                     {
-                        Console.WriteLine(answer[counter].ToString());//testing char iteration
+                        if (entry[counter] == answer[counter])
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        }
+                        Console.WriteLine(entry[counter].ToString());
+                        Console.ForegroundColor= ConsoleColor.White;//reset
+                        //testing char iteration
                         //if (entry == answers[pickedAnswer][counter])
                         //{
 
