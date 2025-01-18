@@ -24,6 +24,7 @@
             do
             {
                 int pickedAnswer = random.Next(0,10);
+                string answer = answers[pickedAnswer];
                 while (!victory)
                 {
                     Console.Write($"Your guess: ");
@@ -33,9 +34,9 @@
                     {
                         Console.WriteLine("All answers are precisely 5 letters long, this will not increment turns or provide a hint. Guess again.");
                     }
-                    for(int counter = 0; counter < testString.Length; counter++)
+                    for(int counter = 0; counter < answer.Length; counter++)
                     {
-                        Console.WriteLine(testString[counter].ToString());//testing char iteration
+                        Console.WriteLine(answer[counter].ToString());//testing char iteration
                         //if (entry == answers[pickedAnswer][counter])
                         //{
 
