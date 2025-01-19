@@ -40,6 +40,10 @@
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                         }
+                        else if (answer.Contains(entry[counter]) && entry[counter] != answer[counter])
+                        {
+                            Console.ForegroundColor= ConsoleColor.Yellow;
+                        }
                         Console.WriteLine(entry[counter].ToString());
                         Console.ForegroundColor= ConsoleColor.White;//reset
                         //testing char iteration
