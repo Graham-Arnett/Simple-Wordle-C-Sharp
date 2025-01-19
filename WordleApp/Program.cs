@@ -36,12 +36,12 @@
                     }
                     for(int counter = 0; counter < answer.Length; counter++)
                     {
-                        if (entry == answer)
-                        {
-                            Console.Write("\nYou did it!");
-                            victory = true;
-                        }
-                        else if (entry[counter] == answer[counter])
+                        //if (entry == answer)
+                        //{
+                        //    Console.Write("\nYou did it!");
+                        //    victory = true;
+                        //}
+                        if (entry[counter] == answer[counter])
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                         }
@@ -63,6 +63,11 @@
                         //    victory = true;
                         //}
                      
+                    }
+                    if (entry == answer)
+                    {
+                        Console.Write("\nYou did it!");
+                        victory = true;
                     }
                     turns++;
                     //if ( entry == answers[pickedAnswer])
