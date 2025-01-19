@@ -10,20 +10,18 @@
                 "\nThe word is a valid five letter word" +
                 "\nA green letter is correct and in the right spot" +
                 "\nYellow is correct but in the wrong place" +
-                "\nBlue is not used at all");
+                "\nWhite is not used at all");
             int turns = 0;//initializing at zero turns
             bool victory = false; //if they have won
             //bool validInput = false;//if input is valid or not
             Random random = new Random();//because the word is chosen randomly
-            //int chosenAnswer = random.Next(0,10);
-            string choice;//initialize choice, use this for the do/while
+           
+            string choice;//initialize choice, this is for the do/while loop
             string[] answers = {"FLOAT","BLAME","SHARP","IDIOT","MORON","GLOAT","CLOAK","BROKE","FIXED","PUSHY"};//possible answers for the game to choose
-            string testString = "FLACK";
-            //Console.WriteLine(answers[chosenAnswer]); was to test that the random worked
-
+            
             do
             {
-                int pickedAnswer = random.Next(0,10);
+                int pickedAnswer = random.Next(0,10);//we have to do the random inside the loop so it can change with each runthrough
                 string answer = answers[pickedAnswer];
                 while (!victory)
                 {
@@ -36,32 +34,20 @@
                     }
                     for(int counter = 0; counter < answer.Length; counter++)
                     {
-                        //if (entry == answer)
-                        //{
-                        //    Console.Write("\nYou did it!");
-                        //    victory = true;
-                        //}
+                       
                         if (entry[counter] == answer[counter])
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                         }
-                        else if (answer.Contains(entry[counter]) && entry[counter] != answer[counter])
+                        else if (answer.Contains(entry[counter]) && entry[counter] != answer[counter]) //if the letter is correct and the placement is not
                         {
                             Console.ForegroundColor= ConsoleColor.Yellow;
                         }
                        
 
-                        Console.Write(entry[counter].ToString());
-                        Console.ForegroundColor= ConsoleColor.White;//reset
-                        //testing char iteration
-                        //if (entry == answers[pickedAnswer][counter])
-                        //{
-
-                        //}
-                        //if (entry.Equals(answers[pickedAnswer]))
-                        //{
-                        //    victory = true;
-                        //}
+                        Console.Write($"" + entry[counter].ToString() + " "); //prints your guess
+                        Console.ForegroundColor= ConsoleColor.White;//reset color
+                      
                      
                     }
                     if (entry == answer)
@@ -69,13 +55,8 @@
                         Console.Write("\nYou did it!");
                         victory = true;
                     }
-                    turns++;
-                    //if ( entry == answers[pickedAnswer])
-                    //{
-                    //    Console.WriteLine("You did it!");
-                    //    victory = true;
-                    //}
-                    //turns++;
+                    turns++; //increments the amount of turns you've had
+                    
                 }
                 Console.WriteLine($"\nYou took {turns} turns");
                 Console.Write("Would you like to play again? (y/n); ");
