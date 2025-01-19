@@ -27,7 +27,7 @@
                 string answer = answers[pickedAnswer];
                 while (!victory)
                 {
-                    Console.Write($"Your guess: ");
+                    Console.Write($"\nYour guess: ");
                     string entry = Console.ReadLine().ToUpper();
                     int strLength = entry.Length;
                     if(entry.Length < 5 || entry.Length > 5)
@@ -44,7 +44,7 @@
                         {
                             Console.ForegroundColor= ConsoleColor.Yellow;
                         }
-                        Console.WriteLine(entry[counter].ToString());
+                        Console.Write(entry[counter].ToString());
                         Console.ForegroundColor= ConsoleColor.White;//reset
                         //testing char iteration
                         //if (entry == answers[pickedAnswer][counter])
