@@ -36,7 +36,12 @@
                     }
                     for(int counter = 0; counter < answer.Length; counter++)
                     {
-                        if (entry[counter] == answer[counter])
+                        if (entry == answer)
+                        {
+                            Console.Write("\nYou did it!");
+                            victory = true;
+                        }
+                        else if (entry[counter] == answer[counter])
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                         }
@@ -44,6 +49,8 @@
                         {
                             Console.ForegroundColor= ConsoleColor.Yellow;
                         }
+                       
+
                         Console.Write(entry[counter].ToString());
                         Console.ForegroundColor= ConsoleColor.White;//reset
                         //testing char iteration
@@ -55,7 +62,9 @@
                         //{
                         //    victory = true;
                         //}
+                     
                     }
+                    turns++;
                     //if ( entry == answers[pickedAnswer])
                     //{
                     //    Console.WriteLine("You did it!");
@@ -63,7 +72,7 @@
                     //}
                     //turns++;
                 }
-                Console.WriteLine($"You took {turns} turns");
+                Console.WriteLine($"\nYou took {turns} turns");
                 Console.Write("Would you like to play again? (y/n); ");
                 choice = Console.ReadLine().ToLower();
             } while (choice == "y");
