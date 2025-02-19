@@ -1,4 +1,6 @@
-﻿namespace WordleApp
+﻿using System.Runtime.InteropServices;
+
+namespace WordleApp
 {
     internal class Program
     {
@@ -11,7 +13,7 @@
                 "\nA green letter is correct and in the right spot" +
                 "\nYellow is correct but in the wrong place" +
                 "\nWhite is not used at all");
-            int turns = 0;//initializing at zero turns
+            //int turns = 5;//initializing at zero turns
             bool victory = false; //if they have won
             //bool validInput = false;//if input is valid or not
             Random random = new Random();//because the word is chosen randomly
@@ -21,6 +23,7 @@
             
             do
             {
+                int turns = 5;
                 int pickedAnswer = random.Next(0,10);//we have to do the random inside the loop so it can change with each runthrough
                 string answer = answers[pickedAnswer];
                 while (!victory)
@@ -55,7 +58,12 @@
                         Console.Write("\nYou did it!");
                         victory = true;
                     }
-                    turns++; //increments the amount of turns you've had
+                    turns--; //increments the amount of turns you've had
+                    if(turns == 0)
+                    {
+                        Console.WriteLine("You have lost.");
+                        victory = true;//Ik its odd, but thats the name of the variable for leaving
+                    }
                     
                 }
                 Console.WriteLine($"\nYou took {turns} turns");
