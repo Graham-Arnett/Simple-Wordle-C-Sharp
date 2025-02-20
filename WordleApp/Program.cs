@@ -26,7 +26,7 @@ namespace WordleApp
                 int turns = 0;
                 int pickedAnswer = random.Next(0,10);//we have to do the random inside the loop so it can change with each runthrough
                 string answer = answers[pickedAnswer];
-                while (!victory)
+                while (!victory || turns == 5)
                 {
                     Console.Write($"\nYour guess: ");
                     string entry = Console.ReadLine().ToUpper();
@@ -62,7 +62,7 @@ namespace WordleApp
                     if(turns == 5)
                     {
                         Console.WriteLine("You have lost.");
-                        victory = true;//Ik its odd, but thats the name of the variable for leaving
+                        //victory = true;//Ik its odd, but thats the name of the variable for leaving
                     }
                     
                 }
