@@ -20,10 +20,10 @@ namespace WordleApp
            
             string choice;//initialize choice, this is for the do/while loop
             string[] answers = {"FLOAT","BLAME","SHARP","IDIOT","MORON","GLOAT","CLOAK","BROKE","FIXED","PUSHY"};//possible answers for the game to choose
-            
+            int turns = 6;
             do
             {
-                int turns = 6;
+                //int turns = 6;
                 int pickedAnswer = random.Next(0,10);//we have to do the random inside the loop so it can change with each runthrough
                 string answer = answers[pickedAnswer];
                 while (!victory || turns == 0)
