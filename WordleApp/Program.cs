@@ -20,13 +20,13 @@ namespace WordleApp
            
             string choice;//initialize choice, this is for the do/while loop
             string[] answers = {"FLOAT","BLAME","SHARP","IDIOT","MORON","GLOAT","CLOAK","BROKE","FIXED","PUSHY"};//possible answers for the game to choose
-            int turns = 6;
+            int turns = 0;
             do
             {
                 //int turns = 6;
                 int pickedAnswer = random.Next(0,10);//we have to do the random inside the loop so it can change with each runthrough
                 string answer = answers[pickedAnswer];
-                while (!victory || turns == 0)
+                while (!victory || turns == 5)
                 {
                     Console.Write($"\nYour guess: ");
                     string entry = Console.ReadLine().ToUpper();
@@ -58,11 +58,11 @@ namespace WordleApp
                         Console.Write("\nYou did it!");
                         victory = true;
                     }
-                    turns--; //increments the amount of turns you've had
-                    if(turns == 0)
+                    turns++; //increments the amount of turns you've had
+                    if(turns == 5)
                     {
-                        Console.WriteLine("You have lost.");
-                        //victory = true;//Ik its odd, but thats the name of the variable for leaving
+                        Console.WriteLine("\nYou have lost.");
+                        victory = true;//Ik its odd, but thats the name of the variable for leaving
                     }
                     
                 }
