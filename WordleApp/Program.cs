@@ -72,8 +72,8 @@ namespace WordleApp
                     }
                     
                 }
-                int turnsTaken = 6 - turns;
-                Console.WriteLine($"\nYou took {turnsTaken} turns");
+                int turnsTaken = turns;
+                Console.WriteLine($"\nYou took {turns} turns");
                 Console.Write("Would you like to play again? (y/n); ");
                 choice = Console.ReadLine().ToLower();
             } while (choice == "y");
