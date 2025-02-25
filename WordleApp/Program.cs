@@ -13,10 +13,7 @@ namespace WordleApp
                 "\nA green letter is correct and in the right spot" +
                 "\nYellow is correct but in the wrong place" +
                 "\nWhite is not used at all");
-            //int turns = 0;//initializing at zero turns
-            //bool victory = false; //if they have won
-            //bool validInput = false;//if input is valid or not
-            Random random = new Random();//because the word is chosen randomly
+            Random random = new Random();
            
             string choice;//initialize choice, this is for the do/while loop
             string[] answers = {"FLOAT","BLAME","SHARP","IDIOT","MORON","GLOAT","CLOAK","BROKE","FIXED","PUSHY"};//possible answers for the game to choose
@@ -25,7 +22,7 @@ namespace WordleApp
             {
                 int turns = 0;
                 bool victory = false;
-                int pickedAnswer = random.Next(0,10);//we have to do the random inside the loop so it can change with each runthrough
+                int pickedAnswer = random.Next(0,10);
                 string answer = answers[pickedAnswer];
                 while (!victory || turns == 5)
                 {
@@ -38,7 +35,7 @@ namespace WordleApp
                     }
                     else
                     {
-                        //turns++;
+                       
                         for (int counter = 0; counter < answer.Length; counter++)
                         {
 
@@ -46,7 +43,7 @@ namespace WordleApp
                             {
                                 Console.ForegroundColor = ConsoleColor.Green;
                             }
-                            else if (answer.Contains(entry[counter]) && entry[counter] != answer[counter]) //if the letter is correct and the placement is not
+                            else if (answer.Contains(entry[counter]) && entry[counter] != answer[counter]) 
                             {
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                             }
@@ -62,7 +59,7 @@ namespace WordleApp
                             Console.Write("\nYou did it!");
                             victory = true;
                         }
-                        //turns++; //increments the amount of turns you've had
+                      
                         if (turns == 5)
                         {
                             Console.WriteLine("\nYou have lost.");
